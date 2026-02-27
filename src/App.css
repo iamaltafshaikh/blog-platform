@@ -1,0 +1,271 @@
+/* ================= THEME VARIABLES ================= */
+
+:root {
+  --bg-gradient: linear-gradient(135deg, #667eea, #764ba2);
+  --glass-bg: rgba(255, 255, 255, 0.2);
+  --text-color: #111;
+  --card-shadow: 0 12px 30px rgba(0,0,0,0.15);
+  --button-bg: linear-gradient(135deg, #4f46e5, #3b82f6);
+  --input-bg: rgba(255,255,255,0.4);
+}
+
+body.dark {
+  --bg-gradient: linear-gradient(135deg, #0f172a, #1e293b);
+  --glass-bg: rgba(255, 255, 255, 0.08);
+  --text-color: #f1f5f9;
+  --card-shadow: 0 12px 30px rgba(0,0,0,0.5);
+  --button-bg: linear-gradient(135deg, #2563eb, #1d4ed8);
+  --input-bg: rgba(255,255,255,0.1);
+}
+
+/* ================= GLOBAL ================= */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-family: "Segoe UI", sans-serif;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--bg-gradient);
+  color: var(--text-color);
+}
+
+/* ================= AUTH WRAPPER ================= */
+
+.auth-wrapper {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ================= LOGIN / REGISTER CARD ================= */
+
+.login-container {
+  width: 400px;
+  padding: 35px;
+  border-radius: 20px;
+  backdrop-filter: blur(25px);
+  background: var(--glass-bg);
+  box-shadow: var(--card-shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* ================= INPUTS ================= */
+
+input,
+textarea {
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  background: var(--input-bg);
+  color: var(--text-color);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: rgba(255,255,255,0.6);
+}
+
+input:focus,
+textarea:focus {
+  box-shadow: 0 0 0 3px rgba(99,102,241,0.4);
+}
+
+/* ================= BUTTONS ================= */
+
+button {
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  background: var(--button-bg);
+  color: white;
+  font-weight: 500;
+  transition: 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+}
+
+/* ================= DASHBOARD ================= */
+
+.dashboard {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ================= SIDEBAR ================= */
+
+.sidebar {
+  width: 230px;
+  padding: 30px 20px;
+  backdrop-filter: blur(20px);
+  background: var(--glass-bg);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: var(--card-shadow);
+}
+
+.sidebar h2 {
+  margin-bottom: 20px;
+}
+
+/* ================= MAIN ================= */
+
+.main-content {
+  flex: 1;
+  padding: 40px;
+}
+
+/* ================= BLOG GRID ================= */
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 25px;
+}
+
+/* ================= BLOG CARD ================= */
+
+.blog-card {
+  backdrop-filter: blur(20px);
+  background: var(--glass-bg);
+  padding: 20px;
+  border-radius: 18px;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.3s ease;
+}
+
+.blog-card:hover {
+  transform: translateY(-8px);
+}
+
+/* ================= MODAL ================= */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  backdrop-filter: blur(25px);
+  background: var(--glass-bg);
+  padding: 30px;
+  border-radius: 20px;
+  width: 450px;
+  max-width: 90%;
+  box-shadow: var(--card-shadow);
+}
+
+/* ================= TOAST ================= */
+
+.toast {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: var(--button-bg);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 10px;
+  animation: slideUp 0.3s ease;
+}
+
+.toast.error {
+  background: red;
+}
+
+/* ================= EMPTY ================= */
+
+.empty-state {
+  text-align: center;
+  margin-top: 100px;
+  opacity: 0.8;
+}
+
+/* ================= ANIMATION ================= */
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 900px) {
+  .dashboard {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+/* ================= BLOG FORM ================= */
+
+.blog-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.blog-form input,
+.blog-form textarea {
+  width: 100%;
+}
+
+.blog-form button {
+  margin-top: 5px;
+}
+
+/* ===== MODAL BUTTONS ===== */
+
+.modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.cancel-btn {
+  background: gray;
+}
+
+.card-actions {
+  margin-top: 18px;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.card-actions button {
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.card-actions button:first-child {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+}
+
+.card-actions button:last-child {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+}
